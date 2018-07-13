@@ -1,11 +1,11 @@
 package com.consulting.core.cra.model;
 
-import java.time.ZonedDateTime;
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 
 /**
@@ -28,9 +28,9 @@ public class Contract {
 
     private Long tjm;
 
-    private ZonedDateTime startDate;
+    private Date startDate;
 
-    private ZonedDateTime endDate;
+    private Date endDate;
 
     private Long paiementPeriod;
 

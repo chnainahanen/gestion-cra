@@ -27,4 +27,5 @@ public class Bill {
     private Boolean paid;
     private Long globalAmount;
 
+
 }
