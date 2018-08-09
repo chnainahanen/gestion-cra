@@ -37,8 +37,6 @@ public class CraApplicationTests {
 	public void setUp() throws Exception {
 
 		Company company = new Company();
-		company.setCompanyId("t1 zone");
-		company.setName("Test company");
 		repository.save(company);
 
 	}

@@ -1,6 +1,5 @@
 package com.consulting.core.cra.controller;
 
-import com.consulting.core.cra.model.Company;
 import com.consulting.core.cra.model.Contract;
 import com.consulting.core.cra.repository.ContratRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,14 @@ import java.util.stream.Collectors;
  */
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/contrat")
 public class ContratController {
 
-    @Autowired
     private ContratRepository repository;
+
+    public ContratController(ContratRepository repository) {
+        this.repository = repository;
+    }
 
 
     @RequestMapping(value = "contracts", method = RequestMethod.GET)
@@ -32,13 +34,13 @@ public class ContratController {
 
     @RequestMapping(value = "contract", method = RequestMethod.POST)
     public Contract addContat(@Valid @RequestBody Contract contract) {
-        return repository.save(company);
+        return repository.save(contract);
     }
 
     @RequestMapping("clients/{id}")
     public Contract getContractById(@PathVariable(value = "id") Long contractId) {
         return repository.findById(contractId)
-                .orElseThrow(() -> new ResourceNotFoundException("companyId"));
+                .orElseThrow(() -> new ResourceNotFoundException("contractId"));
     }
 
     @RequestMapping(value = "client/{id}", method = RequestMethod.DELETE)
@@ -55,9 +57,9 @@ public class ContratController {
                               @Valid @RequestBody Contract contractDetails) {
 
         Contract contrat = repository.findById(Long.parseLong(contratId))
-                .orElseThrow(() -> new ResourceNotFoundException("contratId"));
+                .orElseThrow(() -> new ResourceNotFoundException("contractId"));
         System.out.println(contrat);
-        contrat.setContratId(contractDetails.getContractId());
+        contrat.setContractId(contractDetails.getContractId());
           Contract updatedContract = repository.save(contrat);
         System.out.println(updatedContract);
 

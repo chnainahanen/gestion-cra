@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * A Company: le client
- * Created by nizaraouissaoui on 21/04/2018.
+ * A Company
+ * Created by HanenChnaina on 21/04/2018.
  */
 @Entity
 @Getter

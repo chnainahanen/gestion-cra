@@ -7,12 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * A Bill: Facture
- * Created by nizaraouissaoui on 21/04/2018.
+
+ * Created by hanen chnaina.
  */
 @Entity
-@Getter
-@Setter
+//@Getter
+//@Setter
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
@@ -27,5 +27,35 @@ public class Bill {
     private Boolean paid;
     private Long globalAmount;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTva() {
+        return tva;
+    }
+
+    public void setTva(Long tva) {
+        this.tva = tva;
+    }
+
+    public Boolean getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Boolean paid) {
+        this.paid = paid;
+    }
+
+    public Long getGlobalAmount() {
+        return globalAmount;
+    }
+
+    public void setGlobalAmount(Long globalAmount) {
+        this.globalAmount = globalAmount;
+    }
 }

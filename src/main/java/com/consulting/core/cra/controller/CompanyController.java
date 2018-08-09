@@ -2,25 +2,33 @@ package com.consulting.core.cra.controller;
 
 import com.consulting.core.cra.model.Company;
 import com.consulting.core.cra.repository.CompanyRepository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
- * Created by nizaraouissaoui on 21/04/2018.
+ * Created by HanenChnaina on 16/07/2018.
  */
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/compagny")
 public class CompanyController {
 
-    @Autowired
     private CompanyRepository repository;
+
+    public CompanyController(CompanyRepository repository) {
+        this.repository = repository;
+    }
+
 
 
     @RequestMapping(value = "clients", method = RequestMethod.GET)
