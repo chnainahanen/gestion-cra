@@ -17,15 +17,11 @@ import java.util.stream.Collectors;
  */
 
 @RestController
-@RequestMapping("/api/bill")
+@RequestMapping("/api")
 public class BillController {
 
-    private BillRepository repository;
-
-    public BillController(BillRepository repository) {
-        this.repository = repository;
-    }
-
+    @Autowired
+    BillRepository repository;
 
     @RequestMapping(value = "bills", method = RequestMethod.GET)
     public Collection<Bill> getbills() {
