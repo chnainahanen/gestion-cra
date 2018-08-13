@@ -16,15 +16,11 @@ import java.util.stream.Collectors;
  */
 
 @RestController
-@RequestMapping("/api/contrat")
+@RequestMapping("/api/")
 public class ContratController {
 
+    @Autowired
     private ContratRepository repository;
-
-    public ContratController(ContratRepository repository) {
-        this.repository = repository;
-    }
-
 
     @RequestMapping(value = "contracts", method = RequestMethod.GET)
     public Collection<Contract> getContracts() {

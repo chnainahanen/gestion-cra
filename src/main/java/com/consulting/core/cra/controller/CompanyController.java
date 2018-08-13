@@ -2,6 +2,7 @@ package com.consulting.core.cra.controller;
 
 import com.consulting.core.cra.model.Company;
 import com.consulting.core.cra.repository.CompanyRepository;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,15 +21,11 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/api/compagny")
+@RequestMapping("/api/")
 public class CompanyController {
 
-    private CompanyRepository repository;
-
-    public CompanyController(CompanyRepository repository) {
-        this.repository = repository;
-    }
-
+    @Autowired
+    CompanyRepository repository;
 
 
     @RequestMapping(value = "clients", method = RequestMethod.GET)
@@ -64,11 +61,6 @@ public class CompanyController {
         Company company = repository.findById(Long.parseLong(companyId))
                 .orElseThrow(() -> new ResourceNotFoundException("companyId"));
         System.out.println(company);
-        company.setCompanyId(companyDetails.getCompanyId());
-        company.setName(companyDetails.getName());
-        company.setPhone(companyDetails.getPhone());
-        company.setEmailBill(companyDetails.getEmailBill());
-        company.setEmailContrat(companyDetails.getEmailContrat());
 
 
         Company updatedCompany = repository.save(company);
